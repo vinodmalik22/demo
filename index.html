@@ -102,10 +102,128 @@
         }
 
         .glass-card:hover {
-            transform: translateY(-8px) scale(1.01);
             border-color: rgba(99, 102, 241, 0.4);
             box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.2);
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+        }
+
+        /* Advanced 3D Tilt Animation for Core Offerings */
+        .core-offerings-grid {
+            perspective: 1500px;
+        }
+
+        .tilt-card {
+            transform-style: preserve-3d;
+            will-change: transform;
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tilt-card:hover {
+            z-index: 10;
+        }
+
+        .tilt-card .card-content {
+            position: relative;
+            z-index: 3;
+            transform: translateZ(30px);
+            transition: transform 0.3s ease;
+        }
+
+        .tilt-card .card-icon {
+            position: relative;
+            z-index: 3;
+            transform: translateZ(50px);
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card.tilt-card:hover {
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(99, 102, 241, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .tilt-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(99, 102, 241, 0.15) 0%, 
+                transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .tilt-card:hover::before {
+            opacity: 1;
+        }
+
+        .tilt-card .shine {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+                105deg,
+                transparent 40%,
+                rgba(255, 255, 255, 0.03) 45%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0.03) 55%,
+                transparent 60%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .tilt-card:hover .shine {
+            opacity: 1;
+        }
+
+        @media (hover: none) {
+            .tilt-card {
+                transform: none !important;
+            }
+            .tilt-card::before,
+            .tilt-card .shine {
+                display: none;
+            }
+        }
+
+        /* Scroll Animation - Slide from Left */
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .core-box {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-150px);
+        }
+
+        .core-box.slide-in {
+            visibility: visible;
+            animation: slideInFromLeft 0.4s ease-out forwards;
+        }
+
+        /* After scroll animation, allow tilt to work */
+        .core-box.slide-in.animation-done {
+            animation: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
 
         .animated-bg {
@@ -469,7 +587,7 @@
                     <div class="max-w-2xl">
                         <h2
                             class="text-3xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-                            Our Expertise in SaaS &amp; AI</h2>
+                            Our Expertise in GrassFront</h2>
                         <p class="text-slate-400 text-lg">End-to-end development services tailored for scalability and
                             performance.</p>
                     </div>
@@ -502,8 +620,7 @@
                                 <span
                                     class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">Figma</span>
                                 <span
-                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">SaaS
-                                    Product</span>
+                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">Adobe XD</span>
                             </div>
                         </div>
                     </div>
@@ -530,7 +647,7 @@
                                 <span
                                     class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-accent/40 transition-colors">Node.js</span>
                                 <span
-                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-accent/40 transition-colors">Laravel</span>
+                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-accent/40 transition-colors">JavaScript</span>
                             </div>
                         </div>
                     </div>
@@ -630,201 +747,142 @@
                 </div>
             </div>
         </section>
-        <section class="py-24 px-6 relative" id="hiring">
-            <div class="max-w-7xl mx-auto">
-                <div class="mb-16 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Hire The Best Talent</h2>
-                    <p class="text-slate-400">Flexible engagement models to suit businesses of all sizes.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div
-                        class="glass-card p-6 rounded-2xl flex flex-col h-full fade-in-section hover:border-cyan-500/30 group">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors">
-                            <span class="material-symbols-outlined">repeat</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Retainer</h3>
-                        <p class="text-sm text-slate-400 mb-6 flex-grow">Ongoing support and maintenance for evolving
-                            products.</p>
-                        <ul class="text-sm text-slate-300 space-y-3 mb-8">
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-cyan-400 text-lg">check_circle</span>
-                                Continuous Updates</li>
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-cyan-400 text-lg">check_circle</span> Priority
-                                Support</li>
-                        </ul>
-                        <button
-                            class="w-full py-3 rounded-xl border border-white/10 hover:bg-white/5 text-sm font-bold transition-all hover:border-cyan-500/50 hover:text-cyan-400">Select</button>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl flex flex-col h-full fade-in-section group hover:border-violet-500/30"
-                        style="transition-delay: 100ms;">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-4 text-violet-400 group-hover:text-violet-300 transition-colors">
-                            <span class="material-symbols-outlined">monetization_on</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Fixed Cost</h3>
-                        <p class="text-sm text-slate-400 mb-6 flex-grow">Perfect for well-defined projects with clear
-                            scope and timeline.</p>
-                        <ul class="text-sm text-slate-300 space-y-3 mb-8">
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-violet-400 text-lg">check_circle</span> Budget
-                                Certainty</li>
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-violet-400 text-lg">check_circle</span>
-                                Defined Deliverables</li>
-                        </ul>
-                        <button
-                            class="w-full py-3 rounded-xl border border-white/10 hover:bg-white/5 text-sm font-bold transition-all hover:border-violet-500/50 hover:text-violet-400">Select</button>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl flex flex-col h-full fade-in-section group hover:border-pink-500/30"
-                        style="transition-delay: 200ms;">
-                        <div
-                            class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4 text-pink-400 group-hover:text-pink-300 transition-colors">
-                            <span class="material-symbols-outlined">schedule</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Hourly</h3>
-                        <p class="text-sm text-slate-400 mb-6 flex-grow">Flexible engagement for consulting or
-                            short-term tasks.</p>
-                        <ul class="text-sm text-slate-300 space-y-3 mb-8">
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-pink-400 text-lg">check_circle</span> Pay as
-                                you go</li>
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-pink-400 text-lg">check_circle</span> Maximum
-                                Flexibility</li>
-                        </ul>
-                        <button
-                            class="w-full py-3 rounded-xl border border-white/10 hover:bg-white/5 text-sm font-bold transition-all hover:border-pink-500/50 hover:text-pink-400">Select</button>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl flex flex-col h-full border-primary/40 relative overflow-hidden fade-in-section shadow-[0_0_20px_rgba(79,70,229,0.15)] hover:shadow-[0_0_30px_rgba(79,70,229,0.3)]"
-                        style="transition-delay: 300ms;">
-                        <div
-                            class="absolute top-0 right-0 bg-gradient-to-bl from-primary to-primary-hover text-white text-[10px] font-bold px-3 py-1.5 rounded-bl-xl shadow-md">
-                            POPULAR</div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 text-primary-glow">
-                            <span class="material-symbols-outlined">groups</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Dedicated Team</h3>
-                        <p class="text-sm text-slate-400 mb-6 flex-grow">Your own remote development team managed by us.
-                        </p>
-                        <ul class="text-sm text-slate-300 space-y-3 mb-8">
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-primary-glow text-lg">check_circle</span> Full
-                                Control</li>
-                            <li class="flex items-center gap-2"><span
-                                    class="material-symbols-outlined text-primary-glow text-lg">check_circle</span>
-                                Scalable Resources</li>
-                        </ul>
-                        <button
-                            class="w-full py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold transition-all shadow-glow hover:shadow-lg hover:-translate-y-0.5">Select</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-24 px-6 relative bg-surface-dark/40 border-y border-white/5 backdrop-blur-sm" id="insights">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex justify-between items-center mb-16 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold">Insights &amp; Updates</h2>
-                    <a class="hidden md:block text-sm font-bold text-primary-glow hover:text-white transition-colors"
-                        href="#">View Blog</a>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <article class="group cursor-pointer fade-in-section">
-                        <div
-                            class="rounded-2xl overflow-hidden mb-5 relative aspect-[4/3] border border-white/5 group-hover:border-primary/50 transition-colors">
-                            <div
-                                class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <img alt="AI abstract visualization"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                data-alt="Abstract AI visualization with neural networks"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAISstnF9Mz2jvXnAbZMgcvuuxnAhYghOGAxNF539NwZOfv7fPRyh4EtcWT0ct4Mlegv8YLOgWUoVfiWIe25zrDxM4YwpI3_K10pevyopfkrMyOIm5rf5zMCE4i0D8vjEtibltLeduZ4hWlDqgR7aBzSItDyraHgwGGEhQ44qERLpUs1NzQsGJ7RvgP1NWnyDPQwNWH0cUcILgy9TEhYFtHYbuh2ZEtfR8GHDAvyFGgJwrQZKXsJLRfXx5GDbQJcyg8HQP6dJIus0zq" />
-                            <div class="absolute bottom-4 left-4 z-20">
-                                <span
-                                    class="px-3 py-1 bg-primary/90 backdrop-blur text-white text-xs font-bold rounded-lg shadow-lg">AI
-                                    Tech</span>
-                            </div>
-                        </div>
-                        <h3
-                            class="text-xl font-bold mb-3 group-hover:text-primary-glow transition-colors leading-tight">
-                            The Future of Generative AI in SaaS</h3>
-                        <p class="text-slate-400 text-sm line-clamp-2">Exploring how Large Language Models are reshaping
-                            the landscape of software as a service and user expectations.</p>
-                    </article>
-                    <article class="group cursor-pointer fade-in-section" style="transition-delay: 100ms;">
-                        <div
-                            class="rounded-2xl overflow-hidden mb-5 relative aspect-[4/3] border border-white/5 group-hover:border-accent/50 transition-colors">
-                            <div
-                                class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <img alt="Cybersecurity lock concept"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                data-alt="Cybersecurity digital lock concept"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUPa1IgX3YKutkcr4lCqBVSrE5v-8QfpOtfVlFJk9C28Cg97s265jlcaP4_pqph9nd14IyW128TeYU_YLmdym5L5MsR1yOWT-pTqQXwRqpcAXHktv5MZOx0Ng-VFpe7OZenbZluWdNEmxtuqpKK3KEwPkiI_HbYw8ck8CC8FjDtgGTujUhoivxS9e3gYkPs3lLH3zBH1UIt4kMMLofRSIm0KmuXVljrGqentiYydikzX9kW6WgjdoZCUG575PppUFUoN0xTZXFwXS" />
-                            <div class="absolute bottom-4 left-4 z-20">
-                                <span
-                                    class="px-3 py-1 bg-accent/90 backdrop-blur text-white text-xs font-bold rounded-lg shadow-lg">Security</span>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 group-hover:text-accent-glow transition-colors leading-tight">
-                            Securing Cloud Infrastructure</h3>
-                        <p class="text-slate-400 text-sm line-clamp-2">Best practices for maintaining data integrity and
-                            protection in distributed cloud environments.</p>
-                    </article>
-                    <article class="group cursor-pointer fade-in-section" style="transition-delay: 200ms;">
-                        <div
-                            class="rounded-2xl overflow-hidden mb-5 relative aspect-[4/3] border border-white/5 group-hover:border-green-500/50 transition-colors">
-                            <div
-                                class="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10">
-                            </div>
-                            <img alt="Team collaborating on dashboard"
-                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                                data-alt="Team analyzing data on dashboard"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRNVRoAyEmH1TsRSTEH1BxpHXQjx-RjYbIin729xIN6y0h3nBPieheyC61YwGd0HMirXwOb8BMGwIt4yAylitP7REJFEcIHi9CNZ2Ja46PcHcn8Cz4KBf2MlQcOnl_Rn4MXLP5m62pgJUU_coNIAmBmtGxzGLFzUeXAudHm8yyFY3PFCFMx1htmlNkYs47p7V1_LvpxDQixbNGGzdLFUDTKwARlw0uwQGZ_xatEUu7MLV4vLy8opFd9Eam3ZRARNImz5ZL48yswVi4" />
-                            <div class="absolute bottom-4 left-4 z-20">
-                                <span
-                                    class="px-3 py-1 bg-emerald-500/90 backdrop-blur text-white text-xs font-bold rounded-lg shadow-lg">Strategy</span>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 group-hover:text-emerald-400 transition-colors leading-tight">
-                            Data-Driven Decision Making</h3>
-                        <p class="text-slate-400 text-sm line-clamp-2">How to leverage analytics to drive product growth
-                            and improve customer retention rates effectively.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <!-- Core Offering Section -->
         <section class="py-24 px-6 relative bg-surface-dark/40 border-y border-white/5" id="core-offering">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 fade-in-section">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Core Offerings</h2>
-                    <p class="text-slate-400 max-w-2xl mx-auto">Comprehensive solutions tailored to your business needs</p>
+                    <p class="text-white max-w-2xl mx-auto">Comprehensive solutions tailored to your business needs</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-3xl fade-in-section group">
-                        <div class="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary-glow group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">code</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 core-offerings-grid">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-1">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary-glow group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">extension</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Custom Development</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Tailored software solutions built from the ground up to match your specific business requirements and workflows.</p>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Bespoke Solutions</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Custom-built software engineered around business logic, scalability, and long-term performance.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Customization</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 rounded-3xl fade-in-section group" style="transition-delay: 100ms;">
-                        <div class="w-16 h-16 rounded-xl bg-accent/20 flex items-center justify-center mb-6 text-accent-glow group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">cloud</span>
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-2">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-accent/20 flex items-center justify-center mb-6 text-accent-glow group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">language</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Cloud Solutions</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Scalable cloud infrastructure and migration services for modern, distributed business operations.</p>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Web Platform</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Secure, cloud-ready web platforms designed for reliability, speed, and enterprise growth.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Digital Platforms</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 rounded-3xl fade-in-section group" style="transition-delay: 200ms;">
-                        <div class="w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-4xl">support_agent</span>
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-3">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">smartphone</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">24/7 Support</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Round-the-clock technical support and maintenance to keep your systems running smoothly.</p>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Smart Apps</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">AI-enabled mobile applications delivering intelligent experiences and real-time insights.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Mobility</p>
+                        </div>
+                    </div>
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-4">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">apartment</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Enterprise Systems</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Robust enterprise systems that integrate operations, data, and decision-making.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Enterprise</p>
+                        </div>
+                    </div>
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-5">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-slate-500/20 flex items-center justify-center mb-6 text-slate-400 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">settings</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Intelligent Automation</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Automation powered by intelligence to optimize workflows and operational efficiency.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Automation</p>
+                        </div>
+                    </div>
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-6">
+                        <div class="shine"></div>
+                        <div class="card-icon w-16 h-16 rounded-xl bg-green-500/20 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">add_circle</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="text-2xl font-bold mb-4 text-white">Other</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Extended digital capabilities aligned with evolving technologies and business demands.</p>
+                            <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Extensions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="py-12 px-6 relative" id="projects">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-8 fade-in-section">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Our Projects</h2>
+                    <p class="text-slate-400 text-sm max-w-2xl mx-auto">Innovative solutions built to transform businesses</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Platter Project -->
+                    <div class="glass-card rounded-2xl overflow-hidden fade-in-section group hover:border-orange-500/40 transition-all duration-500">
+                        <div class="h-28 bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-yellow-500/20 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.15),transparent_70%)]"></div>
+                            <div class="flex items-center gap-3 z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-500">
+                                    <span class="material-symbols-outlined text-2xl text-white">restaurant</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white">Platter</h3>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded-full">Food Tech</span>
+                                <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">SaaS</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-3">A comprehensive food ordering and restaurant management platform designed to streamline operations.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Smart Menu</span>
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Order Tracking</span>
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Analytics</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-1 text-orange-400 font-bold text-xs hover:text-orange-300 transition-colors">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Ignite Project -->
+                    <div class="glass-card rounded-2xl overflow-hidden fade-in-section group hover:border-red-500/40 transition-all duration-500" style="transition-delay: 150ms;">
+                        <div class="h-28 bg-gradient-to-br from-red-500/20 via-rose-500/10 to-pink-500/20 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.15),transparent_70%)]"></div>
+                            <div class="flex items-center gap-3 z-10">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center shadow-lg shadow-red-500/30 group-hover:scale-110 transition-transform duration-500">
+                                    <span class="material-symbols-outlined text-2xl text-white">local_fire_department</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white">Ignite</h3>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Startup</span>
+                                <span class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-full">Innovation</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-3">A powerful startup accelerator platform that connects entrepreneurs with resources and funding opportunities.</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Mentors</span>
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Funding</span>
+                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Growth Tools</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center gap-1 text-red-400 font-bold text-xs hover:text-red-300 transition-colors">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -878,15 +936,15 @@
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-white">Phone Support</h3>
                         <p class="text-slate-400 text-sm mb-4">Speak directly with our team</p>
-                        <a href="tel:+15551234567" class="text-accent-glow hover:text-white transition-colors">+1 (555) 123-4567</a>
+                        <a href="tel:+917014626389" class="text-accent-glow hover:text-white transition-colors">+91 7014626389</a>
                     </div>
                     <div class="glass-card p-8 rounded-3xl text-center fade-in-section group" style="transition-delay: 200ms;">
                         <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-6 text-secondary mx-auto group-hover:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-3xl">chat</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-white">Live Chat</h3>
-                        <p class="text-slate-400 text-sm mb-4">Chat with us in real-time</p>
-                        <button class="text-secondary hover:text-white transition-colors">Start Chat</button>
+                        <h3 class="text-xl font-bold mb-3 text-white">Instagram</h3>
+                        <p class="text-slate-400 text-sm mb-4">Follow us on Instagram</p>
+                        <a href="https://www.instagram.com/grassfront" target="_blank" class="text-secondary hover:text-white transition-colors">@grassfront</a>
                     </div>
                 </div>
             </div>
@@ -1204,6 +1262,177 @@
             document.querySelectorAll('.popup-section, .popup-left, .popup-right').forEach(section => {
                 observer.observe(section);
             });
+        });
+
+        // Advanced 3D Tilt Animation for Core Offerings - Run after page loads
+        function setupTiltCard(card) {
+            var rafId = null;
+            var currentRotateX = 0;
+            var currentRotateY = 0;
+            var currentTranslateY = 0;
+            var targetRotateX = 0;
+            var targetRotateY = 0;
+            var targetTranslateY = 0;
+            var springFactor = 0.12;
+
+            function lerp(start, end, factor) {
+                return start + (end - start) * factor;
+            }
+
+            function animate() {
+                currentRotateX = lerp(currentRotateX, targetRotateX, springFactor);
+                currentRotateY = lerp(currentRotateY, targetRotateY, springFactor);
+                currentTranslateY = lerp(currentTranslateY, targetTranslateY, springFactor);
+
+                card.style.transform = 'perspective(1500px) rotateX(' + currentRotateX + 'deg) rotateY(' + currentRotateY + 'deg) translateY(' + currentTranslateY + 'px) scale3d(1.02, 1.02, 1.02)';
+
+                if (
+                    Math.abs(currentRotateX - targetRotateX) > 0.01 ||
+                    Math.abs(currentRotateY - targetRotateY) > 0.01 ||
+                    Math.abs(currentTranslateY - targetTranslateY) > 0.01
+                ) {
+                    rafId = requestAnimationFrame(animate);
+                }
+            }
+
+            function resetAnimation() {
+                currentRotateX = lerp(currentRotateX, 0, springFactor);
+                currentRotateY = lerp(currentRotateY, 0, springFactor);
+                currentTranslateY = lerp(currentTranslateY, 0, springFactor);
+
+                card.style.transform = 'perspective(1500px) rotateX(' + currentRotateX + 'deg) rotateY(' + currentRotateY + 'deg) translateY(' + currentTranslateY + 'px) scale3d(1, 1, 1)';
+
+                if (
+                    Math.abs(currentRotateX) > 0.01 ||
+                    Math.abs(currentRotateY) > 0.01 ||
+                    Math.abs(currentTranslateY) > 0.01
+                ) {
+                    rafId = requestAnimationFrame(resetAnimation);
+                } else {
+                    card.style.transform = '';
+                }
+            }
+
+            function handleMouseEnter(e) {
+                if (rafId) cancelAnimationFrame(rafId);
+            }
+
+            function handleMouseMove(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+
+                targetRotateX = ((y - centerY) / centerY) * -12;
+                targetRotateY = ((x - centerX) / centerX) * 12;
+
+                var corners = [
+                    { x: 0, y: 0 },
+                    { x: rect.width, y: 0 },
+                    { x: 0, y: rect.height },
+                    { x: rect.width, y: rect.height }
+                ];
+
+                var minDistance = Infinity;
+                for (var j = 0; j < corners.length; j++) {
+                    var distance = Math.sqrt(
+                        Math.pow(x - corners[j].x, 2) + Math.pow(y - corners[j].y, 2)
+                    );
+                    if (distance < minDistance) minDistance = distance;
+                }
+
+                var maxDistance = Math.sqrt(
+                    Math.pow(rect.width / 2, 2) + Math.pow(rect.height / 2, 2)
+                );
+                var cornerProximity = 1 - (minDistance / maxDistance);
+                targetTranslateY = cornerProximity * 8;
+
+                card.style.setProperty('--mouse-x', (x / rect.width) * 100 + '%');
+                card.style.setProperty('--mouse-y', (y / rect.height) * 100 + '%');
+
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(animate);
+            }
+
+            function handleMouseLeave(e) {
+                targetRotateX = 0;
+                targetRotateY = 0;
+                targetTranslateY = 0;
+
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(resetAnimation);
+            }
+
+            card.addEventListener('mouseenter', handleMouseEnter);
+            card.addEventListener('mousemove', handleMouseMove);
+            card.addEventListener('mouseleave', handleMouseLeave);
+        }
+
+        // Initialize each card by ID
+        window.addEventListener('load', function() {
+            // Setup each card individually by ID
+            var card1 = document.getElementById('tilt-card-1');
+            var card2 = document.getElementById('tilt-card-2');
+            var card3 = document.getElementById('tilt-card-3');
+            var card4 = document.getElementById('tilt-card-4');
+            var card5 = document.getElementById('tilt-card-5');
+            var card6 = document.getElementById('tilt-card-6');
+
+            if (card1) { console.log('Setting up card 1'); setupTiltCard(card1); }
+            if (card2) { console.log('Setting up card 2'); setupTiltCard(card2); }
+            if (card3) { console.log('Setting up card 3'); setupTiltCard(card3); }
+            if (card4) { console.log('Setting up card 4'); setupTiltCard(card4); }
+            if (card5) { console.log('Setting up card 5'); setupTiltCard(card5); }
+            if (card6) { console.log('Setting up card 6'); setupTiltCard(card6); }
+
+            console.log('All 6 cards initialized!');
+
+            // Scroll Animation - Boxes slide from left one by one (every time)
+            var coreSection = document.getElementById('core-offering');
+            var coreBoxes = document.querySelectorAll('.core-box');
+            var isAnimating = false;
+            var animationTimeouts = [];
+
+            function triggerScrollAnimation() {
+                var sectionRect = coreSection.getBoundingClientRect();
+                var windowHeight = window.innerHeight;
+                
+                // Check if section is in view
+                var isInView = sectionRect.top < windowHeight - 100 && sectionRect.bottom > 100;
+
+                if (isInView && !isAnimating) {
+                    isAnimating = true;
+                    
+                    coreBoxes.forEach(function(box, index) {
+                        var timeout = setTimeout(function() {
+                            box.classList.add('slide-in');
+                            
+                            setTimeout(function() {
+                                box.classList.add('animation-done');
+                            }, 400);
+                            
+                        }, index * 400);
+                        animationTimeouts.push(timeout);
+                    });
+                } 
+                else if (!isInView && isAnimating) {
+                    // Reset when scrolled away
+                    isAnimating = false;
+                    
+                    // Clear pending timeouts
+                    animationTimeouts.forEach(function(t) { clearTimeout(t); });
+                    animationTimeouts = [];
+                    
+                    // Remove animation classes
+                    coreBoxes.forEach(function(box) {
+                        box.classList.remove('slide-in', 'animation-done');
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', triggerScrollAnimation);
+            triggerScrollAnimation(); // Check on page load
         });
     </script>
 
