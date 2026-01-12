@@ -139,7 +139,7 @@
         }
 
         .glass-card.tilt-card:hover {
-            box-shadow: 
+            box-shadow:
                 0 25px 50px -12px rgba(0, 0, 0, 0.4),
                 0 0 30px rgba(99, 102, 241, 0.15),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -150,9 +150,9 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                rgba(99, 102, 241, 0.15) 0%, 
-                transparent 50%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(99, 102, 241, 0.15) 0%,
+                    transparent 50%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -167,14 +167,12 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: linear-gradient(
-                105deg,
-                transparent 40%,
-                rgba(255, 255, 255, 0.03) 45%,
-                rgba(255, 255, 255, 0.05) 50%,
-                rgba(255, 255, 255, 0.03) 55%,
-                transparent 60%
-            );
+            background: linear-gradient(105deg,
+                    transparent 40%,
+                    rgba(255, 255, 255, 0.03) 45%,
+                    rgba(255, 255, 255, 0.05) 50%,
+                    rgba(255, 255, 255, 0.03) 55%,
+                    transparent 60%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -189,6 +187,7 @@
             .tilt-card {
                 transform: none !important;
             }
+
             .tilt-card::before,
             .tilt-card .shine {
                 display: none;
@@ -201,6 +200,7 @@
                 opacity: 0;
                 transform: translateX(-150px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateX(0);
@@ -272,7 +272,7 @@
                 height: 100%;
                 min-height: 100vh;
             }
-            
+
             .animated-bg {
                 min-height: 100vh;
             }
@@ -453,6 +453,315 @@
                 transform: translateY(-4px) scale(1.005);
             }
         }
+
+        /* ========================================
+           COMPREHENSIVE MOBILE & TABLET OPTIMIZATION
+           ======================================== */
+
+        /* Mobile First - Base Mobile Styles (320px - 767px) */
+        @media (max-width: 767px) {
+
+            /* Typography Scaling */
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem) !important;
+                line-height: 1.2 !important;
+            }
+
+            h2 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+            }
+
+            h3 {
+                font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+            }
+
+            /* Mobile Navigation */
+            #mobileMenu {
+                background: rgba(15, 23, 42, 0.98) !important;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            }
+
+            #mobileMenu a {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                padding: 12px 16px !important;
+                font-size: 16px !important;
+            }
+
+            /* Touch-Friendly Buttons */
+            button,
+            a.bg-button-gradient,
+            .pill-button {
+                min-height: 44px;
+                min-width: 44px;
+                padding: 12px 24px !important;
+                font-size: 14px !important;
+            }
+
+            /* Projects Section Mobile Optimization */
+            .project-card {
+                border-radius: 24px !important;
+                padding: 24px !important;
+            }
+
+            .project-card h2 {
+                font-size: 2rem !important;
+            }
+
+            .project-card h3 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Reduce icon sizes on mobile */
+            .project-icon-container {
+                width: 280px !important;
+                height: 250px !important;
+            }
+
+            .project-card .material-symbols-outlined {
+                font-size: 6rem !important;
+            }
+
+            /* Sticky card offset for mobile */
+            .sticky-card {
+                top: 80px !important;
+            }
+
+            /* Core Offerings Mobile */
+            .core-offerings-grid {
+                gap: 20px !important;
+            }
+
+            .tilt-card {
+                padding: 24px !important;
+            }
+
+            /* Better spacing for mobile */
+            section {
+                padding-top: 48px !important;
+                padding-bottom: 48px !important;
+            }
+
+            /* Contrast Fix - Make text more readable */
+            .text-slate-400 {
+                color: rgb(203 213 225) !important;
+                /* slate-300 for better contrast */
+            }
+
+            .text-white {
+                color: rgb(248 250 252) !important;
+                /* Brighter white */
+            }
+
+            /* Mobile Menu Button */
+            #mobileMenuBtn {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Reduce excessive whitespace */
+            .max-w-7xl {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            /* Form inputs mobile friendly */
+            input,
+            textarea,
+            select {
+                font-size: 16px !important;
+                /* Prevents zoom on iOS */
+                min-height: 44px;
+            }
+
+            /* Card hover effects - reduce on mobile */
+            .glass-card {
+                transition: transform 0.2s ease;
+            }
+
+            .glass-card:active {
+                transform: scale(0.98);
+            }
+
+            /* Hero section mobile */
+            .curtain-text {
+                font-size: 2.5rem !important;
+                padding: 1rem !important;
+            }
+
+            .curtain-box {
+                padding: 1rem 1.5rem !important;
+                margin-top: 0.5rem !important;
+            }
+
+            /* Reduce animation intensity on mobile */
+            .tilt-card {
+                transform: none !important;
+            }
+
+            .tilt-card .card-icon {
+                transform: none !important;
+            }
+
+            .tilt-card .card-content {
+                transform: none !important;
+            }
+
+            /* Better image scaling */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Prevent horizontal scroll */
+            body {
+                overflow-x: hidden;
+            }
+
+            main {
+                overflow-x: hidden;
+            }
+        }
+
+        /* Tablet Optimization (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            /* Typography for tablet */
+            h1 {
+                font-size: clamp(3rem, 6vw, 4.5rem) !important;
+            }
+
+            h2 {
+                font-size: clamp(2.25rem, 5vw, 3rem) !important;
+            }
+
+            /* Projects section tablet */
+            .project-card {
+                max-width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .project-card h2 {
+                font-size: 3rem !important;
+            }
+
+            .project-card h3 {
+                font-size: 2rem !important;
+            }
+
+            .project-icon-container {
+                width: 350px !important;
+                height: 320px !important;
+            }
+
+            /* Better grid spacing */
+            .grid {
+                gap: 24px !important;
+            }
+
+            /* Sticky offset for tablet */
+            .sticky-card {
+                top: 100px !important;
+            }
+
+            /* Touch targets */
+            button,
+            a {
+                min-height: 44px;
+            }
+
+            /* Contrast improvements */
+            .text-slate-400 {
+                color: rgb(203 213 225) !important;
+            }
+
+            /* Reduce whitespace on sides */
+            .max-w-7xl {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            /* Form optimization */
+            input,
+            textarea {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Large Tablet / Small Desktop (1024px - 1279px) */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .project-card {
+                max-width: 85%;
+            }
+
+            .project-icon-container {
+                width: 400px !important;
+                height: 360px !important;
+            }
+        }
+
+        /* Landscape Mobile Optimization */
+        @media (max-width: 767px) and (orientation: landscape) {
+            section {
+                padding-top: 32px !important;
+                padding-bottom: 32px !important;
+            }
+
+            .min-h-screen {
+                min-height: auto !important;
+            }
+
+            .curtain-text {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* High DPI / Retina Displays */
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi) {
+            .glass-card {
+                border-width: 0.5px;
+            }
+
+            .text-sm {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+
+        /* Accessibility - Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .tilt-card {
+                transform: none !important;
+            }
+        }
+
+        /* Dark Mode Contrast Enhancement */
+        @media (prefers-contrast: high) {
+            .text-slate-400 {
+                color: rgb(226 232 240) !important;
+                /* slate-200 */
+            }
+
+            .glass-card {
+                border-color: rgba(255, 255, 255, 0.2) !important;
+            }
+        }
     </style>
 </head>
 
@@ -460,14 +769,15 @@
     <nav class="fixed top-0 w-full z-50 glass transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             <div class="flex items-center gap-2 sm:gap-3 group cursor-pointer">
-                <img src="grass1-04.png" alt="Grassfront Logo" class="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+                <img src="grass1-04.png" alt="Grassfront Logo"
+                    class="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105">
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <button id="mobileMenuBtn" class="md:hidden text-white p-2">
                 <span class="material-symbols-outlined text-2xl">menu</span>
             </button>
-            
+
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-4 lg:gap-6">
                 <a class="text-sm font-semibold text-gray-400 hover:text-primary-glow transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 after:transition-all hover:after:w-full"
@@ -490,7 +800,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-surface-dark border-t border-white/10">
             <div class="px-4 py-6 space-y-4">
@@ -514,12 +824,13 @@
         </div>
     </nav>
     <main class="relative w-full overflow-x-hidden pt-16 sm:pt-20">
-        <section class="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20"
+        <section
+            class="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20"
             style="overflow: hidden;">
             <!-- Curtain Overlay -->
             <div class="curtain-overlay" id="curtainOverlay">
                 <div class="curtain-text">
-                    <span class="curtain-main">Welcome ,Future Builder !</span>
+                    <span class="curtain-main">Welcome, Future Builder!</span>
                     <div class="curtain-box">
                         <span class="curtain-subtitle">GrassFront</span>
                         <div class="curtain-powered">
@@ -535,14 +846,17 @@
             </div>
             <div class="max-w-5xl mx-auto text-center z-10 fade-in-section is-visible px-4"
                 style="position: relative; z-index: 10;">
-                <h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6 sm:mb-8">
+                <h1
+                    class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6 sm:mb-8">
                     Building enterprise solutions That <br class="hidden sm:block" />
                     <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-secondary animate-gradient-text">Businesses
                         Rely On</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2">
-                    We design, build, and maintain scalable software, intelligent systems, and purpose-built platforms for modern organizations.
+                <p
+                    class="text-base sm:text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2">
+                    We design, build, and maintain scalable software, intelligent systems, and purpose-built platforms
+                    for modern organizations.
                 </p>
             </div>
         </section>
@@ -561,20 +875,20 @@
                         </h2>
                         <p
                             class="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed hover:text-gray-800 transition-all duration-300">
-                            GrassFront works alongside startups, SMEs and enterprises to architect, develop and sustain dependable technology solutions.
+                            GrassFront works alongside startups, SMEs and enterprises to architect, develop and sustain
+                            dependable technology solutions.
                         </p>
                         <p
                             class="text-sm sm:text-base text-gray-600 leading-relaxed hover:text-gray-800 transition-all duration-300">
-                            Instead of merely shipping code, we assess workflows, business rules and operational risks, engineering scalable platforms that support real business outcomes.
+                            Instead of merely shipping code, we assess workflows, business rules and operational risks,
+                            engineering scalable platforms that support real business outcomes.
                         </p>
                     </div>
                     <div class="relative popup-right group mt-8 lg:mt-0">
                         <div
                             class="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500">
                         </div>
-                        <img src="about-image.jpeg"
-                            alt="Frontend and Backend Development Code"
-                            loading="lazy"
+                        <img src="about-image.jpeg" alt="Frontend and Backend Development Code" loading="lazy"
                             class="relative w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl transform hover:scale-105 transition-all duration-500" />
                     </div>
                 </div>
@@ -620,7 +934,8 @@
                                 <span
                                     class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">Figma</span>
                                 <span
-                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">Adobe XD</span>
+                                    class="px-3 py-1 bg-surface-dark border border-white/10 rounded-full text-xs text-slate-300 group-hover:border-primary/40 transition-colors">Adobe
+                                    XD</span>
                             </div>
                         </div>
                     </div>
@@ -659,18 +974,24 @@
                 <div class="text-center mb-20 fade-in-section">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Approach To Excellence</h2>
                 </div>
-                
+
                 <!-- First Row: 3 Items -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 relative">
                     <!-- Arrow 1 to 2 -->
-                    <div class="hidden md:block absolute top-12 left-[29%] w-[13%] h-0.5 bg-gradient-to-r from-primary to-accent z-0">
-                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-accent"></div>
+                    <div
+                        class="hidden md:block absolute top-12 left-[29%] w-[13%] h-0.5 bg-gradient-to-r from-primary to-accent z-0">
+                        <div
+                            class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-accent">
+                        </div>
                     </div>
                     <!-- Arrow 2 to 3 -->
-                    <div class="hidden md:block absolute top-12 left-[62.5%] w-[13%] h-0.5 bg-gradient-to-r from-accent to-secondary z-0">
-                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-secondary"></div>
+                    <div
+                        class="hidden md:block absolute top-12 left-[62.5%] w-[13%] h-0.5 bg-gradient-to-r from-accent to-secondary z-0">
+                        <div
+                            class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-secondary">
+                        </div>
                     </div>
-                    
+
                     <div class="relative z-10 flex flex-col items-center text-center group fade-in-section">
                         <div
                             class="w-24 h-24 rounded-full bg-surface-dark border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:border-primary group-hover:shadow-glow transition-all duration-300 relative overflow-hidden">
@@ -714,10 +1035,13 @@
                 <!-- Second Row: 2 Items Centered -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto relative">
                     <!-- Arrow between QA and Support -->
-                    <div class="hidden md:block absolute top-12 left-[41%] w-[18%] h-0.5 bg-gradient-to-r from-primary to-accent z-0">
-                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-accent"></div>
+                    <div
+                        class="hidden md:block absolute top-12 left-[41%] w-[18%] h-0.5 bg-gradient-to-r from-primary to-accent z-0">
+                        <div
+                            class="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-accent">
+                        </div>
                     </div>
-                    
+
                     <div class="relative z-10 flex flex-col items-center text-center group fade-in-section"
                         style="transition-delay: 300ms;">
                         <div
@@ -755,69 +1079,87 @@
                     <p class="text-white max-w-2xl mx-auto">Comprehensive solutions tailored to your business needs</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 core-offerings-grid">
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-1">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-1">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary-glow group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary-glow group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">extension</span>
                         </div>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold mb-4 text-white">Bespoke Solutions</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Custom-built software engineered around business logic, scalability, and long-term performance.</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">Custom-built software engineered around
+                                business logic, scalability, and long-term performance.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Customization</p>
                         </div>
                     </div>
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-2">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-2">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-accent/20 flex items-center justify-center mb-6 text-accent-glow group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-accent/20 flex items-center justify-center mb-6 text-accent-glow group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">language</span>
                         </div>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold mb-4 text-white">Web Platform</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Secure, cloud-ready web platforms designed for reliability, speed, and enterprise growth.</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">Secure, cloud-ready web platforms designed
+                                for reliability, speed, and enterprise growth.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Digital Platforms</p>
                         </div>
                     </div>
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-3">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-3">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">smartphone</span>
                         </div>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold mb-4 text-white">Smart Apps</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">AI-enabled mobile applications delivering intelligent experiences and real-time insights.</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">AI-enabled mobile applications delivering
+                                intelligent experiences and real-time insights.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Mobility</p>
                         </div>
                     </div>
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-4">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-4">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">apartment</span>
                         </div>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold mb-4 text-white">Enterprise Systems</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Robust enterprise systems that integrate operations, data, and decision-making.</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">Robust enterprise systems that integrate
+                                operations, data, and decision-making.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Enterprise</p>
                         </div>
                     </div>
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-5">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-5">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-slate-500/20 flex items-center justify-center mb-6 text-slate-400 group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-slate-500/20 flex items-center justify-center mb-6 text-slate-400 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">settings</span>
                         </div>
                         <div class="card-content">
                             <h3 class="text-2xl font-bold mb-4 text-white">Intelligent Automation</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Automation powered by intelligence to optimize workflows and operational efficiency.</p>
+                            <p class="text-slate-400 text-sm leading-relaxed">Automation powered by intelligence to
+                                optimize workflows and operational efficiency.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Automation</p>
                         </div>
                     </div>
-                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box" id="tilt-card-6">
+                    <div class="glass-card tilt-card p-8 rounded-3xl fade-in-section group relative overflow-hidden core-box"
+                        id="tilt-card-6">
                         <div class="shine"></div>
-                        <div class="card-icon w-16 h-16 rounded-xl bg-green-500/20 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition-transform">
+                        <div
+                            class="card-icon w-16 h-16 rounded-xl bg-green-500/20 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-4xl">add_circle</span>
                         </div>
                         <div class="card-content">
-                            <h3 class="text-2xl font-bold mb-4 text-white">Other</h3>
-                            <p class="text-slate-400 text-sm leading-relaxed">Extended digital capabilities aligned with evolving technologies and business demands.</p>
+                            <h3 class="text-2xl font-bold mb-4 text-white">Many More</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Extended digital capabilities aligned with
+                                evolving technologies and business demands.</p>
                             <p class="text-xs text-slate-500 mt-4 uppercase tracking-widest">Extensions</p>
                         </div>
                     </div>
@@ -825,68 +1167,496 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section class="py-12 px-6 relative" id="projects">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-8 fade-in-section">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Our Projects</h2>
-                    <p class="text-slate-400 text-sm max-w-2xl mx-auto">Innovative solutions built to transform businesses</p>
+        <!-- Projects Section - Scroll Card Stack -->
+        <section class="px-6 relative" id="projects">
+            <div class="absolute inset-0 bg-black">
+                <!-- Subtle pink/purple glow effects -->
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+            </div>
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center py-20 fade-in-section">
+                    <p class="text-pink-500 text-sm font-semibold uppercase tracking-wider mb-3">What We've Built</p>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">OUR PROJECTS</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto text-base">Innovative solutions built to transform
+                        businesses</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Platter Project -->
-                    <div class="glass-card rounded-2xl overflow-hidden fade-in-section group hover:border-orange-500/40 transition-all duration-500">
-                        <div class="h-28 bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-yellow-500/20 flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.15),transparent_70%)]"></div>
-                            <div class="flex items-center gap-3 z-10">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-500">
-                                    <span class="material-symbols-outlined text-2xl text-white">restaurant</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-white">Platter</h3>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-[10px] font-bold rounded-full">Food Tech</span>
-                                <span class="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-bold rounded-full">SaaS</span>
-                            </div>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-3">A comprehensive food ordering and restaurant management platform designed to streamline operations.</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Smart Menu</span>
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Order Tracking</span>
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-orange-400 text-xs">check_circle</span>Analytics</span>
-                            </div>
-                            <a href="#" class="inline-flex items-center gap-1 text-orange-400 font-bold text-xs hover:text-orange-300 transition-colors">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
-                        </div>
-                    </div>
 
-                    <!-- Ignite Project -->
-                    <div class="glass-card rounded-2xl overflow-hidden fade-in-section group hover:border-red-500/40 transition-all duration-500" style="transition-delay: 150ms;">
-                        <div class="h-28 bg-gradient-to-br from-red-500/20 via-rose-500/10 to-pink-500/20 flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.15),transparent_70%)]"></div>
-                            <div class="flex items-center gap-3 z-10">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 flex items-center justify-center shadow-lg shadow-red-500/30 group-hover:scale-110 transition-transform duration-500">
-                                    <span class="material-symbols-outlined text-2xl text-white">local_fire_department</span>
+                <!-- Project Cards Stack Container -->
+                <div class="project-stack-wrapper" id="project-stack-wrapper">
+                    <div class="project-cards-viewport" id="project-cards-viewport">
+                        <!-- Card 1: Platter (Bottom of stack - shows first) -->
+                        <div class="project-stacked-card" data-card="0">
+                            <div class="card-inner">
+                                <div class="flex-1 relative z-10">
+                                    <p class="text-pink-500 text-sm font-bold uppercase tracking-wider mb-3">For
+                                        Restaurants</p>
+                                    <h3 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Platter
+                                    </h3>
+                                    <p class="text-slate-300 text-lg leading-relaxed max-w-lg mb-8">Complete food
+                                        ordering &
+                                        restaurant management platform with smart menus, real-time tracking, and
+                                        powerful analytics.</p>
+                                    <a href="#contact"
+                                        class="inline-flex items-center gap-3 px-6 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-pink-500 hover:text-white transition-all duration-300 group">
+                                        Learn More
+                                        <span
+                                            class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </a>
                                 </div>
-                                <h3 class="text-xl font-bold text-white">Ignite</h3>
+                                <div
+                                    class="w-full md:w-[450px] h-64 md:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-orange-500/30 to-amber-500/30 flex items-center justify-center border border-orange-500/20 backdrop-blur-sm">
+                                    <div class="text-center">
+                                        <span
+                                            class="material-symbols-outlined text-8xl text-orange-400">restaurant</span>
+                                        <p class="text-orange-300 text-base mt-4 font-semibold">Platter App</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="px-2 py-0.5 bg-red-500/20 text-red-400 text-[10px] font-bold rounded-full">Startup</span>
-                                <span class="px-2 py-0.5 bg-rose-500/20 text-rose-400 text-[10px] font-bold rounded-full">Innovation</span>
+
+                        <!-- Card 2: Ignite -->
+                        <div class="project-stacked-card" data-card="1">
+                            <div class="card-inner">
+                                <div class="flex-1 relative z-10">
+                                    <p class="text-pink-500 text-sm font-bold uppercase tracking-wider mb-3">For
+                                        Entrepreneurs</p>
+                                    <h3 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Ignite</h3>
+                                    <p class="text-slate-300 text-lg leading-relaxed max-w-lg mb-8">Connecting
+                                        entrepreneurs
+                                        with mentors, funding networks, and growth tools to ignite their business
+                                        journey.</p>
+                                    <a href="#contact"
+                                        class="inline-flex items-center gap-3 px-6 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-pink-500 hover:text-white transition-all duration-300 group">
+                                        Learn More
+                                        <span
+                                            class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="w-full md:w-[450px] h-64 md:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-red-500/30 to-rose-500/30 flex items-center justify-center border border-red-500/20 backdrop-blur-sm">
+                                    <div class="text-center">
+                                        <span
+                                            class="material-symbols-outlined text-8xl text-red-400">local_fire_department</span>
+                                        <p class="text-red-300 text-base mt-4 font-semibold">Ignite Platform</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="text-slate-400 text-xs leading-relaxed mb-3">A powerful startup accelerator platform that connects entrepreneurs with resources and funding opportunities.</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Mentors</span>
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Funding</span>
-                                <span class="flex items-center gap-1 text-[11px] text-slate-300"><span class="material-symbols-outlined text-red-400 text-xs">check_circle</span>Growth Tools</span>
+                        </div>
+
+                        <!-- Card 3: Bizz.Studio -->
+                        <div class="project-stacked-card" data-card="2">
+                            <div class="card-inner">
+                                <div class="flex-1 relative z-10">
+                                    <p class="text-pink-500 text-sm font-bold uppercase tracking-wider mb-3">For
+                                        Creatives</p>
+                                    <h3 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Bizz.Studio
+                                    </h3>
+                                    <p class="text-slate-300 text-lg leading-relaxed max-w-lg mb-8">All-in-one business
+                                        management studio for creative professionals. Invoicing, projects, clients &
+                                        analytics.</p>
+                                    <a href="#contact"
+                                        class="inline-flex items-center gap-3 px-6 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-pink-500 hover:text-white transition-all duration-300 group">
+                                        Learn More
+                                        <span
+                                            class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="w-full md:w-[450px] h-64 md:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-violet-500/30 to-purple-500/30 flex items-center justify-center border border-violet-500/20 backdrop-blur-sm">
+                                    <div class="text-center">
+                                        <span
+                                            class="material-symbols-outlined text-8xl text-violet-400">business_center</span>
+                                        <p class="text-violet-300 text-base mt-4 font-semibold">Bizz.Studio</p>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-1 text-red-400 font-bold text-xs hover:text-red-300 transition-colors">Learn More <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                        </div>
+
+                        <!-- Card 4: Your Project (Top of stack - shows last) -->
+                        <div class="project-stacked-card" data-card="3">
+                            <div class="card-inner">
+                                <div class="flex-1 relative z-10">
+                                    <p class="text-pink-500 text-sm font-bold uppercase tracking-wider mb-3">For
+                                        Visionaries</p>
+                                    <h3 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">Maybe Next
+                                        One<br />Is Yours</h3>
+                                    <p class="text-slate-300 text-lg leading-relaxed max-w-lg mb-8">Have an idea? Let's
+                                        build
+                                        something amazing together. We turn your vision into reality.</p>
+                                    <a href="#contact"
+                                        class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-sm rounded-full hover:shadow-xl hover:shadow-pink-500/50 hover:scale-105 transition-all duration-300 group">
+                                        Start Your Project
+                                        <span
+                                            class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="w-full md:w-[450px] h-64 md:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-pink-500/30 to-purple-500/30 flex items-center justify-center border border-pink-500/20 backdrop-blur-sm">
+                                    <div class="text-center">
+                                        <span
+                                            class="material-symbols-outlined text-8xl text-pink-400">rocket_launch</span>
+                                        <p class="text-pink-300 text-base mt-4 font-semibold">Your Project</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Navigation Dots -->
+                <div class="flex justify-center gap-3 py-8" id="project-nav-dots">
+                    <span class="project-nav-dot w-3 h-3 rounded-full bg-pink-500 transition-all duration-300"
+                        data-index="0"></span>
+                    <span class="project-nav-dot w-3 h-3 rounded-full bg-white/30 transition-all duration-300"
+                        data-index="1"></span>
+                    <span class="project-nav-dot w-3 h-3 rounded-full bg-white/30 transition-all duration-300"
+                        data-index="2"></span>
+                    <span class="project-nav-dot w-3 h-3 rounded-full bg-white/30 transition-all duration-300"
+                        data-index="3"></span>
                 </div>
             </div>
         </section>
+
+        <style>
+            /* Project Card Stack Styles - Full Screen */
+            #projects {
+                padding-left: 0;
+                padding-right: 0;
+                /* Note: Don't use overflow: hidden - it breaks sticky positioning */
+            }
+
+            #projects>.max-w-6xl {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .project-stack-wrapper {
+                position: relative;
+                height: 110vh;
+                /* Minimal height for card transitions */
+            }
+
+            .project-cards-viewport {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                width: 100%;
+                perspective: 1000px;
+            }
+
+            .project-stacked-card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100vh;
+                width: 100%;
+                transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.4s ease,
+                    filter 0.4s ease;
+                will-change: transform, opacity;
+            }
+
+            .project-stacked-card .card-inner {
+                height: 100%;
+                width: 100%;
+                border-radius: 32px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                background: linear-gradient(135deg, #000000 0%, #1a0a1f 100%);
+                border: 2px solid transparent;
+                background-clip: padding-box;
+                position: relative;
+            }
+
+            /* Glowing border effect */
+            .project-stacked-card .card-inner::before {
+                content: '';
+                position: absolute;
+                inset: -2px;
+                border-radius: 32px;
+                padding: 2px;
+                background: linear-gradient(135deg, #E91E63 0%, rgba(233, 30, 99, 0) 100%);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+
+            @media (min-width: 768px) {
+                .project-stacked-card .card-inner {
+                    flex-direction: row;
+                    padding: 4rem 6rem;
+                    gap: 4rem;
+                }
+            }
+
+            /* Card content styling for full screen */
+            .project-stacked-card .card-inner>div:first-child {
+                max-width: 600px;
+            }
+
+            .project-stacked-card .card-inner h3 {
+                font-size: 2.5rem;
+            }
+
+            @media (min-width: 768px) {
+                .project-stacked-card .card-inner h3 {
+                    font-size: 3.5rem;
+                }
+            }
+
+            .project-stacked-card .card-inner p {
+                font-size: 1rem;
+                line-height: 1.8;
+            }
+
+            /* Icon container larger for full screen */
+            .project-stacked-card .card-inner>div:last-child {
+                width: 280px;
+                height: 280px;
+                box-shadow: 0 20px 60px rgba(233, 30, 99, 0.2);
+            }
+
+            @media (min-width: 768px) {
+                .project-stacked-card .card-inner>div:last-child {
+                    width: 450px;
+                    height: 400px;
+                }
+            }
+
+            .project-stacked-card .card-inner .material-symbols-outlined {
+                font-size: 6rem;
+            }
+
+            @media (min-width: 768px) {
+                .project-stacked-card .card-inner .material-symbols-outlined {
+                    font-size: 8rem;
+                }
+            }
+
+            /* Initial state - all cards stacked below viewport */
+            .project-stacked-card[data-card="0"] {
+                z-index: 4;
+            }
+
+            .project-stacked-card[data-card="1"] {
+                z-index: 3;
+                transform: translateY(100%);
+            }
+
+            .project-stacked-card[data-card="2"] {
+                z-index: 2;
+                transform: translateY(100%);
+            }
+
+            .project-stacked-card[data-card="3"] {
+                z-index: 1;
+                transform: translateY(100%);
+            }
+
+            /* Card covered state */
+            .project-stacked-card.is-covered {
+                transform: translateY(-30px) scale(0.94) !important;
+                filter: brightness(0.6);
+            }
+
+            .project-stacked-card.is-covered-2 {
+                transform: translateY(-50px) scale(0.88) !important;
+                filter: brightness(0.4);
+            }
+
+            .project-stacked-card.is-covered-3 {
+                transform: translateY(-70px) scale(0.82) !important;
+                filter: brightness(0.2);
+            }
+
+            /* Active card */
+            .project-stacked-card.is-active {
+                transform: translateY(0) scale(1) !important;
+                filter: brightness(1);
+            }
+
+            /* Coming up from bottom - controlled by JS */
+            .project-stacked-card.is-entering {
+                pointer-events: auto;
+            }
+
+            /* Navigation dots - fixed position */
+            #project-nav-dots {
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 100;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 12px 20px;
+                border-radius: 30px;
+                backdrop-filter: blur(10px);
+                display: none;
+            }
+
+            #project-nav-dots.visible {
+                display: flex;
+            }
+
+            .project-nav-dot {
+                width: 12px;
+                height: 12px;
+                cursor: pointer;
+            }
+
+            .project-nav-dot.active {
+                background-color: #ec4899 !important;
+                transform: scale(1.4);
+            }
+
+            /* Hide the section header - positioned inside the viewport */
+            #projects .text-center.py-16 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 60;
+                padding-top: 80px;
+                padding-bottom: 20px;
+                background: linear-gradient(to bottom, rgba(10, 10, 32, 1) 0%, rgba(10, 10, 32, 0.9) 50%, transparent 100%);
+                pointer-events: none;
+            }
+
+            /* Ensure no extra margin/padding at the end of section */
+            #projects>.max-w-6xl>.flex.justify-center {
+                position: absolute;
+                bottom: -1000px;
+                /* Move dots out of document flow */
+            }
+        </style>
+
+        <script>
+                (function () {
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var wrapper = document.getElementById('project-stack-wrapper');
+                        var viewport = document.getElementById('project-cards-viewport');
+                        var cards = document.querySelectorAll('.project-stacked-card');
+                        var dots = document.querySelectorAll('.project-nav-dot');
+                        var dotsContainer = document.getElementById('project-nav-dots');
+                        var projectsSection = document.getElementById('projects');
+                        var totalCards = cards.length;
+                        var currentActiveCard = 0;
+
+                        if (!wrapper || !viewport || totalCards === 0) return;
+
+                        console.log('Full screen card stack animation initialized with', totalCards, 'cards');
+
+                        function updateCardPositions() {
+                            var wrapperRect = wrapper.getBoundingClientRect();
+                            var wrapperTop = wrapperRect.top;
+                            var wrapperHeight = wrapperRect.height;
+                            var viewportHeight = window.innerHeight;
+
+                            // Check if we're in the projects section
+                            var sectionRect = projectsSection.getBoundingClientRect();
+                            var isInSection = sectionRect.top < viewportHeight && sectionRect.bottom > 0;
+
+                            // Show/hide navigation dots
+                            if (dotsContainer) {
+                                if (isInSection) {
+                                    dotsContainer.classList.add('visible');
+                                } else {
+                                    dotsContainer.classList.remove('visible');
+                                }
+                            }
+
+                            // Calculate scroll progress within the wrapper (0 to 1)
+                            var scrollInWrapper = -wrapperTop;
+                            var maxScroll = wrapperHeight - viewportHeight;
+                            var progress = Math.max(0, Math.min(1, scrollInWrapper / maxScroll));
+
+                            // Calculate which card should be active based on progress
+                            // Divide progress into equal segments for each card transition
+                            var segmentSize = 1 / totalCards;
+                            var activeCardIndex = Math.min(Math.floor(progress / segmentSize), totalCards - 1);
+
+                            // Progress within current card's segment (0 to 1)
+                            var cardProgress = (progress - (activeCardIndex * segmentSize)) / segmentSize;
+                            cardProgress = Math.max(0, Math.min(1, cardProgress));
+
+                            currentActiveCard = activeCardIndex;
+
+                            cards.forEach(function (card, index) {
+                                // Reset classes
+                                card.classList.remove('is-active', 'is-covered', 'is-covered-2', 'is-covered-3', 'is-entering');
+
+                                if (index < activeCardIndex) {
+                                    // Cards that have been passed - they get covered
+                                    var coverLevel = activeCardIndex - index;
+                                    if (coverLevel === 1) {
+                                        card.classList.add('is-covered');
+                                    } else if (coverLevel === 2) {
+                                        card.classList.add('is-covered-2');
+                                    } else {
+                                        card.classList.add('is-covered-3');
+                                    }
+                                    card.style.zIndex = 10 + index;
+                                } else if (index === activeCardIndex) {
+                                    // Active card - fully visible at top
+                                    card.classList.add('is-active');
+                                    card.style.zIndex = 20 + totalCards;
+                                    card.style.transform = 'translateY(0) scale(1)';
+                                } else if (index === activeCardIndex + 1) {
+                                    // Next card - coming up from bottom based on progress
+                                    card.classList.add('is-entering');
+                                    var entryOffset = 100 - (cardProgress * 100);
+                                    card.style.transform = 'translateY(' + entryOffset + '%) scale(0.98)';
+                                    card.style.zIndex = 20 + totalCards + 1;
+                                    card.style.opacity = cardProgress > 0.1 ? '1' : '0';
+                                } else {
+                                    // Future cards - hidden below
+                                    card.style.transform = 'translateY(100%) scale(0.95)';
+                                    card.style.zIndex = 10 - index;
+                                    card.style.opacity = '0';
+                                }
+                            });
+
+                            // Update navigation dots
+                            dots.forEach(function (dot, index) {
+                                dot.classList.remove('active');
+                                if (index === activeCardIndex) {
+                                    dot.classList.add('active');
+                                }
+                            });
+                        }
+
+                        // Initial update
+                        updateCardPositions();
+
+                        // Throttled scroll handler
+                        var ticking = false;
+                        window.addEventListener('scroll', function () {
+                            if (!ticking) {
+                                window.requestAnimationFrame(function () {
+                                    updateCardPositions();
+                                    ticking = false;
+                                });
+                                ticking = true;
+                            }
+                        }, { passive: true });
+
+                        // Handle window resize
+                        window.addEventListener('resize', function () {
+                            updateCardPositions();
+                        }, { passive: true });
+
+                        console.log('Full screen project card stack animation ready!');
+                    });
+                })();
+        </script>
 
         <!-- Media Section -->
         <section class="py-24 px-6 relative" id="media">
@@ -897,18 +1667,24 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="glass-card p-8 rounded-3xl fade-in-section group">
-                        <div class="aspect-video rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <div
+                            class="aspect-video rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                             <span class="material-symbols-outlined text-6xl text-primary-glow">play_circle</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-primary-glow transition-colors">Company Overview</h3>
-                        <p class="text-slate-400 text-sm">Watch our latest company presentation showcasing our journey and achievements.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-primary-glow transition-colors">
+                            Company Overview</h3>
+                        <p class="text-slate-400 text-sm">Watch our latest company presentation showcasing our journey
+                            and achievements.</p>
                     </div>
                     <div class="glass-card p-8 rounded-3xl fade-in-section group" style="transition-delay: 100ms;">
-                        <div class="aspect-video rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center">
+                        <div
+                            class="aspect-video rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-accent/20 to-secondary/20 flex items-center justify-center">
                             <span class="material-symbols-outlined text-6xl text-accent-glow">campaign</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent-glow transition-colors">Latest Announcements</h3>
-                        <p class="text-slate-400 text-sm">Stay informed about our newest projects, partnerships, and industry insights.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent-glow transition-colors">
+                            Latest Announcements</h3>
+                        <p class="text-slate-400 text-sm">Stay informed about our newest projects, partnerships, and
+                            industry insights.</p>
                     </div>
                 </div>
             </div>
@@ -923,28 +1699,40 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="glass-card p-8 rounded-3xl text-center fade-in-section group">
-                        <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary-glow mx-auto group-hover:scale-110 transition-transform">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary-glow mx-auto group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">email</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-white">Email Support</h3>
                         <p class="text-slate-400 text-sm mb-4">Get in touch via email for detailed inquiries</p>
-                        <a href="mailto:hello@grassfront.com" class="text-primary-glow hover:text-white transition-colors">hello@grassfront.com</a>
+                        <a href="mailto:hello@grassfront.com"
+                            class="text-primary-glow hover:text-white transition-colors">hello@grassfront.com</a>
                     </div>
-                    <div class="glass-card p-8 rounded-3xl text-center fade-in-section group" style="transition-delay: 100ms;">
-                        <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-6 text-accent-glow mx-auto group-hover:scale-110 transition-transform">
+                    <div class="glass-card p-8 rounded-3xl text-center fade-in-section group"
+                        style="transition-delay: 100ms;">
+                        <div
+                            class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mb-6 text-accent-glow mx-auto group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">call</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-white">Phone Support</h3>
                         <p class="text-slate-400 text-sm mb-4">Speak directly with our team</p>
-                        <a href="tel:+917014626389" class="text-accent-glow hover:text-white transition-colors">+91 7014626389</a>
+                        <a href="tel:+917014626389" class="text-accent-glow hover:text-white transition-colors">+91
+                            7014626389</a>
                     </div>
-                    <div class="glass-card p-8 rounded-3xl text-center fade-in-section group" style="transition-delay: 200ms;">
-                        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-6 text-secondary mx-auto group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <div class="glass-card p-8 rounded-3xl text-center fade-in-section group"
+                        style="transition-delay: 200ms;">
+                        <div
+                            class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-6 text-secondary mx-auto group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-white">Instagram</h3>
                         <p class="text-slate-400 text-sm mb-4">Follow us on Instagram</p>
-                        <a href="https://www.instagram.com/grassfront" target="_blank" class="text-secondary hover:text-white transition-colors">@grassfront</a>
+                        <a href="https://www.instagram.com/grassfront" target="_blank"
+                            class="text-secondary hover:text-white transition-colors">@grassfront</a>
                     </div>
                 </div>
             </div>
@@ -962,23 +1750,32 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-semibold text-slate-300 mb-2">Your Name</label>
-                                <input id="userName" type="text" required class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors" placeholder="John Doe">
+                                <input id="userName" type="text" required
+                                    class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors"
+                                    placeholder="John Doe">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-slate-300 mb-2">Email Address</label>
-                                <input id="userEmail" type="email" required class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors" placeholder="john@example.com">
+                                <input id="userEmail" type="email" required
+                                    class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors"
+                                    placeholder="john@example.com">
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-300 mb-2">Subject</label>
-                            <input id="userSubject" type="text" required class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors" placeholder="How can we help?">
+                            <input id="userSubject" type="text" required
+                                class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors"
+                                placeholder="How can we help?">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-300 mb-2">Message</label>
-                            <textarea id="userMessage" rows="5" required class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+                            <textarea id="userMessage" rows="5" required
+                                class="w-full px-4 py-3 rounded-lg bg-surface-dark border border-white/10 text-white placeholder-slate-500 focus:border-primary focus:outline-none transition-colors resize-none"
+                                placeholder="Tell us about your project..."></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" id="submitBtn" class="bg-button-gradient hover:brightness-110 text-white text-sm font-bold px-8 py-4 rounded-lg shadow-glow transition-all duration-300 transform hover:scale-105 hover:shadow-glow-accent border border-white/10">
+                            <button type="submit" id="submitBtn"
+                                class="bg-button-gradient hover:brightness-110 text-white text-sm font-bold px-8 py-4 rounded-lg shadow-glow transition-all duration-300 transform hover:scale-105 hover:shadow-glow-accent border border-white/10">
                                 Send Message
                             </button>
                         </div>
@@ -1000,11 +1797,21 @@
                         code at a time.
                     </p>
                     <div class="flex gap-5 items-center">
-                        <a class="text-slate-400 hover:text-pink-500 transition-colors" href="https://www.instagram.com/grassfront" target="_blank" title="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        <a class="text-slate-400 hover:text-pink-500 transition-colors"
+                            href="https://www.instagram.com/grassfront" target="_blank" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
                         </a>
-                        <a class="text-slate-400 hover:text-blue-500 transition-colors" href="https://www.linkedin.com/company/grassfront" target="_blank" title="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        <a class="text-slate-400 hover:text-blue-500 transition-colors"
+                            href="https://www.linkedin.com/company/grassfront" target="_blank" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -1031,11 +1838,14 @@
                     <ul class="space-y-3 text-sm text-slate-400">
                         <li class="flex items-start gap-3">
                             <span class="material-symbols-outlined text-sm mt-1 text-primary">location_on</span>
-                            <a href="https://www.google.com/maps/search/Plot+23,+Sector+18,+Maruti+Industrial+Development+Area,+Gurugram,+Haryana+122015" target="_blank" class="hover:text-white transition-colors">Plot 23, Sector 18, Maruti Industrial<br />Development Area, Gurugram,<br />Haryana 122015</a>
+                            <a href="https://www.google.com/maps/search/Plot+23,+Sector+18,+Maruti+Industrial+Development+Area,+Gurugram,+Haryana+122015"
+                                target="_blank" class="hover:text-white transition-colors">Plot 23, Sector 18, Maruti
+                                Industrial<br />Development Area, Gurugram,<br />Haryana 122015</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-sm text-primary">email</span>
-                            <a href="mailto:hello@grassfront.com" class="hover:text-white transition-colors">hello@grassfront.com</a>
+                            <a href="mailto:hello@grassfront.com"
+                                class="hover:text-white transition-colors">hello@grassfront.com</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-sm text-primary">call</span>
@@ -1081,7 +1891,7 @@
         const formMessage = document.getElementById('formMessage');
 
         if (contactForm) {
-            contactForm.addEventListener('submit', async function(e) {
+            contactForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 // Get form values
@@ -1139,9 +1949,9 @@
                     console.error('Error submitting form:', error);
                     console.error('Error code:', error.code);
                     console.error('Error message:', error.message);
-                    
+
                     let errorMsg = 'Oops! Something went wrong. Please try again.';
-                    
+
                     // Provide more specific error messages
                     if (error.code === 'permission-denied') {
                         errorMsg = 'Permission denied. Please contact support.';
@@ -1150,7 +1960,7 @@
                     } else if (error.message.includes('Firebase not initialized')) {
                         errorMsg = 'Connection error. Please refresh the page.';
                     }
-                    
+
                     formMessage.textContent = errorMsg;
                     formMessage.className = 'text-center text-sm text-red-400 mt-4';
                     formMessage.classList.remove('hidden');
@@ -1165,17 +1975,17 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.addEventListener('click', function () {
                 mobileMenu.classList.toggle('hidden');
                 const icon = this.querySelector('.material-symbols-outlined');
                 icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
             });
-            
+
             // Close mobile menu when clicking on a link
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     mobileMenu.classList.add('hidden');
                     mobileMenuBtn.querySelector('.material-symbols-outlined').textContent = 'menu';
                 });
@@ -1186,10 +1996,10 @@
         const curtainOverlay = document.getElementById('curtainOverlay');
         if (curtainOverlay) {
             // Support both touch and mouse events
-            const triggerCurtain = function() {
+            const triggerCurtain = function () {
                 curtainOverlay.classList.add('curtain-up');
             };
-            
+
             curtainOverlay.addEventListener('mouseenter', triggerCurtain);
             curtainOverlay.addEventListener('touchstart', triggerCurtain, { passive: true });
         }
@@ -1204,14 +2014,14 @@
             if (frameAnimation) {
                 const frameNumber = String(currentFrame).padStart(3, '0');
                 const newSrc = `image/ezgif-frame-${frameNumber}.jpg`;
-                
+
                 // Preload next frame for smoother animation on mobile
                 const img = new Image();
-                img.onload = function() {
+                img.onload = function () {
                     frameAnimation.src = newSrc;
                 };
                 img.src = newSrc;
-                
+
                 currentFrame = (currentFrame % totalFrames) + 1;
             }
         }
@@ -1226,7 +2036,7 @@
         }
 
         // Pause animation when page is not visible (saves battery on mobile)
-        document.addEventListener('visibilitychange', function() {
+        document.addEventListener('visibilitychange', function () {
             if (document.hidden) {
                 if (animationInterval) clearInterval(animationInterval);
             } else {
@@ -1252,7 +2062,7 @@
                     }
                 });
             }, observerOptions);
-            
+
             // Observe all fade-in sections
             document.querySelectorAll('.fade-in-section').forEach(section => {
                 observer.observe(section);
@@ -1370,7 +2180,7 @@
         }
 
         // Initialize each card by ID
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Setup each card individually by ID
             var card1 = document.getElementById('tilt-card-1');
             var card2 = document.getElementById('tilt-card-2');
@@ -1397,35 +2207,35 @@
             function triggerScrollAnimation() {
                 var sectionRect = coreSection.getBoundingClientRect();
                 var windowHeight = window.innerHeight;
-                
+
                 // Check if section is in view
                 var isInView = sectionRect.top < windowHeight - 100 && sectionRect.bottom > 100;
 
                 if (isInView && !isAnimating) {
                     isAnimating = true;
-                    
-                    coreBoxes.forEach(function(box, index) {
-                        var timeout = setTimeout(function() {
+
+                    coreBoxes.forEach(function (box, index) {
+                        var timeout = setTimeout(function () {
                             box.classList.add('slide-in');
-                            
-                            setTimeout(function() {
+
+                            setTimeout(function () {
                                 box.classList.add('animation-done');
                             }, 400);
-                            
+
                         }, index * 400);
                         animationTimeouts.push(timeout);
                     });
-                } 
+                }
                 else if (!isInView && isAnimating) {
                     // Reset when scrolled away
                     isAnimating = false;
-                    
+
                     // Clear pending timeouts
-                    animationTimeouts.forEach(function(t) { clearTimeout(t); });
+                    animationTimeouts.forEach(function (t) { clearTimeout(t); });
                     animationTimeouts = [];
-                    
+
                     // Remove animation classes
-                    coreBoxes.forEach(function(box) {
+                    coreBoxes.forEach(function (box) {
                         box.classList.remove('slide-in', 'animation-done');
                     });
                 }
