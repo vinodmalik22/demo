@@ -26,7 +26,7 @@
 
 <body class="font-display text-gray-900 bg-white antialiased selection:bg-primary selection:text-gray-900">
     <nav class="fixed top-0 w-full z-50 glass transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+        <div class="mx-auto h-16 sm:h-20 flex items-center justify-between" style="max-width: 1280px; padding-left: 120px; padding-right: 120px;">
             <div class="flex items-center gap-2 sm:gap-3 group cursor-pointer">
                 <img src="grass1-04.png" alt="Grassfront Logo"
                     class="h-8 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105">
@@ -109,8 +109,8 @@
                 <img class="frame-animation" id="frame-animation" src="image/ezgif-frame-001.jpg"
                     alt="3D Animation Background" loading="lazy">
             </div>
-            <div class="max-w-5xl mx-auto text-center z-10 fade-in-section is-visible px-4"
-                style="position: relative; z-index: 10;">
+            <div class="mx-auto text-center z-10 fade-in-section is-visible"
+                style="position: relative; z-index: 10; max-width: 1280px; padding-left: 120px; padding-right: 120px;">
                 <h1
                     class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6 sm:mb-8">
                     Building enterprise solutions That <br class="hidden sm:block" />
@@ -127,8 +127,8 @@
         </section>
 
         <!-- About Grassfront Section -->
-        <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 relative bg-white popup-section">
-            <div class="max-w-7xl mx-auto">
+        <section class="relative bg-white popup-section" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                     <div class="popup-left max-w-xl">
                         <h3
@@ -161,8 +161,8 @@
         </section>
 
         <!-- Why Grassfront Section -->
-        <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative bg-gradient-to-b from-gray-50 to-white">
-            <div class="max-w-6xl mx-auto text-center">
+        <section class="relative bg-gradient-to-b from-gray-50 to-white" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto text-center" style="max-width: 1280px;">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-8 sm:mb-12">
                     Why GrassFront ?
                 </h2>
@@ -195,8 +195,8 @@
             </div>
         </section>
 
-        <section class="py-24 relative px-6" id="services">
-            <div class="max-w-7xl mx-auto">
+        <section class="relative" id="services" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in-section">
                     <div class="max-w-2xl">
                         <h2
@@ -269,213 +269,182 @@
                 </div>
             </div>
         </section>
-        <section class="py-24 relative px-6 bg-gray-50 border-y border-primary/10" id="process">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20 fade-in-section">
+        <section class="relative bg-gray-50 border-y border-primary/10" id="process" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
+                <div class="text-center mb-16 fade-in-section">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Approach To Excellence</h2>
                 </div>
 
-                <!-- Two Column Layout -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Left Side - 5 Process Steps -->
-                    <div class="space-y-12">
-                        <!-- Discovery -->
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-4 group w-full">
-                                <div
-                                    class="w-20 h-20 rounded-full bg-white border border-white/10 flex items-center justify-center shadow-lg group-hover:border-primary group-hover:shadow-glow transition-all duration-300 flex-shrink-0">
-                                    <span
-                                        class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">search</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                                        Discovery</h3>
-                                    <p class="text-sm text-gray-600">Deep Dive into Requirements</p>
+                <!-- Process Steps in Cards -->
+                <div class="mx-auto space-y-4" style="max-width: 1280px;">
+                    <!-- Step 01 - Select a Project -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">01.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">description</span>
                                 </div>
                             </div>
-                            <!-- Vertical Arrow Down -->
-                            <div class="mt-4 flex flex-col items-center">
-                                <div class="w-0.5 h-8 bg-gradient-to-b from-primary to-accent"></div>
-                                <div
-                                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px] border-t-accent">
-                                </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Select a Project</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                    We begin by understanding your unique requirements and goals. Whether you're looking to build a custom software solution, improve your website's performance, or integrate the latest technology, our team will help you select the right project scope to align with your objectives. Our tailored approach ensures that your project is set up for success from day one.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Arrow 01 to 02 -->
+                    <div class="flex justify-center -my-2">
+                        <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+                            <path d="M40 5 L40 45" stroke="#1F2937" stroke-width="2.5" stroke-dasharray="8,5" stroke-linecap="round" fill="none"/>
+                            <path d="M35 40 L40 45 L45 40" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
 
-                        <!-- Architecture -->
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-4 group w-full">
-                                <div
-                                    class="w-20 h-20 rounded-full bg-white border border-white/10 flex items-center justify-center shadow-lg group-hover:border-accent group-hover:shadow-glow-accent transition-all duration-300 flex-shrink-0">
-                                    <span
-                                        class="material-symbols-outlined text-3xl text-accent group-hover:scale-110 transition-transform">account_tree</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
-                                        Architecture</h3>
-                                    <p class="text-sm text-gray-600">Blueprint, Technical Roadmap</p>
+                    <!-- Step 02 - Project Analysis -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">02.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">search</span>
                                 </div>
                             </div>
-                            <!-- Vertical Arrow Down -->
-                            <div class="mt-4 flex flex-col items-center">
-                                <div class="w-0.5 h-8 bg-gradient-to-b from-accent to-secondary"></div>
-                                <div
-                                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px] border-t-secondary">
-                                </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Project Analysis</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                    Once the project is selected, our team conducts a thorough analysis to determine the perfect strategy. We break down the project into clear milestones, conduct risk assessments, and allocate the right resources for each phase. This ensures that we understand every detail and can develop a structured plan that aligns with your goals while minimizing risks.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Arrow 02 to 03 -->
+                    <div class="flex justify-center -my-2">
+                        <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+                            <path d="M40 5 L40 45" stroke="#1F2937" stroke-width="2.5" stroke-dasharray="8,5" stroke-linecap="round" fill="none"/>
+                            <path d="M35 40 L40 45 L45 40" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
 
-                        <!-- Engineering -->
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-4 group w-full">
-                                <div
-                                    class="w-20 h-20 rounded-full bg-white border border-white/10 flex items-center justify-center shadow-lg group-hover:border-secondary group-hover:shadow-glow transition-all duration-300 flex-shrink-0">
-                                    <span
-                                        class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">code</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1 group-hover:text-secondary transition-colors">
-                                        Engineering</h3>
-                                    <p class="text-sm text-gray-600">Development, Clean Coding</p>
+                    <!-- Step 03 - Architecture -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">03.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">account_tree</span>
                                 </div>
                             </div>
-                            <!-- Vertical Arrow Down -->
-                            <div class="mt-4 flex flex-col items-center">
-                                <div class="w-0.5 h-8 bg-gradient-to-b from-secondary to-primary"></div>
-                                <div
-                                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px] border-t-primary">
-                                </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Architecture</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                    Our architects design a technical blueprint and roadmap tailored to your needs. We select the right technology stack and structure to ensure scalability, performance, and maintainability. Every architectural decision is made with long-term growth and efficiency in mind.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Arrow 03 to 04 -->
+                    <div class="flex justify-center -my-2">
+                        <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+                            <path d="M40 5 L40 45" stroke="#1F2937" stroke-width="2.5" stroke-dasharray="8,5" stroke-linecap="round" fill="none"/>
+                            <path d="M35 40 L40 45 L45 40" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
 
-                        <!-- Quality Assurance -->
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-4 group w-full">
-                                <div
-                                    class="w-20 h-20 rounded-full bg-white border border-white/10 flex items-center justify-center shadow-lg group-hover:border-primary group-hover:shadow-glow transition-all duration-300 flex-shrink-0">
-                                    <span
-                                        class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">verified</span>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                                        Quality Assurance</h3>
-                                    <p class="text-sm text-gray-600">Testing, Deploy</p>
+                    <!-- Step 04 - Engineering -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">04.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">code</span>
                                 </div>
                             </div>
-                            <!-- Vertical Arrow Down -->
-                            <div class="mt-4 flex flex-col items-center">
-                                <div class="w-0.5 h-8 bg-gradient-to-b from-primary to-accent"></div>
-                                <div
-                                    class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[10px] border-t-accent">
-                                </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Engineering</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                    Development begins with clean coding practices and agile methodologies. Our engineers build robust features iteratively, ensuring code quality and alignment with your goals at every step. We maintain transparent communication throughout the development process.
+                                </p>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Arrow 04 to 05 -->
+                    <div class="flex justify-center -my-2">
+                        <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+                            <path d="M40 5 L40 45" stroke="#1F2937" stroke-width="2.5" stroke-dasharray="8,5" stroke-linecap="round" fill="none"/>
+                            <path d="M35 40 L40 45 L45 40" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
 
-                        <!-- Support & Optimization -->
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-4 group w-full">
-                                <div
-                                    class="w-20 h-20 rounded-full bg-white border border-white/10 flex items-center justify-center shadow-lg group-hover:border-accent group-hover:shadow-glow-accent transition-all duration-300 flex-shrink-0">
-                                    <span
-                                        class="material-symbols-outlined text-3xl text-accent group-hover:scale-110 transition-transform">support_agent</span>
+                    <!-- Step 05 - Quality Assurance -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">05.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">verified</span>
                                 </div>
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
-                                        Support & Optimization</h3>
-                                    <p class="text-sm text-gray-600">Maintenance, Improvement</p>
+                            </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Quality Assurance</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                    Rigorous testing ensures your product is reliable and bug-free. We conduct comprehensive QA checks before deployment, guaranteeing a smooth and successful launch. Our testing protocols cover functionality, performance, security, and user experience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Arrow 05 to 06 -->
+                    <div class="flex justify-center -my-2">
+                        <svg width="80" height="50" viewBox="0 0 80 50" fill="none">
+                            <path d="M40 5 L40 45" stroke="#1F2937" stroke-width="2.5" stroke-dasharray="8,5" stroke-linecap="round" fill="none"/>
+                            <path d="M35 40 L40 45 L45 40" stroke="#1F2937" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+
+                    <!-- Step 06 - Support & Optimization -->
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 px-5 md:px-8 py-6 md:py-8">
+                        <div class="flex flex-col md:flex-row items-start gap-5">
+                            <!-- Left side: Number and Icon -->
+                            <div class="flex items-center gap-3 md:gap-5 flex-shrink-0">
+                                <span class="text-[60px] md:text-[80px] font-black text-gray-100 leading-none">06.</span>
+                                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl text-gray-700">support_agent</span>
+                                </div>
+                            </div>
+                            <!-- Right side: Content -->
+                            <div class="flex-1">
+                                <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 text-gray-900">Support & Optimization</h3>
+                                <p class="text-gray-600 leading-relaxed text-xs md:text-sm">
+                                        Post-launch, we provide continuous maintenance, performance optimization, and support. We help your solution evolve with your business needs, ensuring long-term success and growth. Our team remains available for updates, enhancements, and technical assistance.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Right Side - Detailed Description Cards -->
-                    <div class="space-y-6">
-                        <!-- Discovery Card -->
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-3xl text-primary">search</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-3 text-primary">Discovery</h3>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        We start by understanding your business objectives, challenges, and vision. Through collaborative workshops and requirement gathering, we uncover insights that shape a strong foundation for your project.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Architecture Card -->
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-3xl text-accent">account_tree</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-3 text-accent">Architecture</h3>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Our architects design a technical blueprint and roadmap tailored to your needs. We select the right technology stack and structure to ensure scalability, performance, and maintainability.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Engineering Card -->
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-3xl text-secondary">code</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-3 text-secondary">Engineering</h3>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Development begins with clean coding practices and agile methodologies. Our engineers build robust features iteratively, ensuring code quality and alignment with your goals at every step.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Quality Assurance Card -->
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-3xl text-primary">verified</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-3 text-primary">Quality Assurance</h3>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Rigorous testing ensures your product is reliable and bug-free. We conduct comprehensive QA checks before deployment, guaranteeing a smooth and successful launch.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Support & Optimization Card -->
-                        <div class="glass-card p-6 rounded-2xl">
-                            <div class="flex items-start gap-4">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                                    <span class="material-symbols-outlined text-3xl text-accent">support_agent</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold mb-3 text-accent">Support & Optimization</h3>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Post-launch, we provide continuous maintenance, performance optimization, and support. We help your solution evolve with your business needs, ensuring long-term success and growth.
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Core Offering Section -->
-        <section class="py-24 px-6 relative bg-white/40 border-y border-white/5" id="core-offering">
-            <div class="max-w-7xl mx-auto">
+        <section class="relative bg-white/40 border-y border-white/5" id="core-offering" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="text-center mb-16 fade-in-section">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Core Offerings</h2>
                     <p class="text-gray-900 max-w-2xl mx-auto">Comprehensive solutions tailored to your business needs
@@ -571,8 +540,8 @@
         </section>
 
         <!-- Our Projects Section -->
-        <section class="py-16 px-6 relative overflow-hidden bg-white" id="projects">
-            <div class="max-w-7xl mx-auto">
+        <section class="relative overflow-hidden bg-white" id="projects" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Projects</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Innovative solutions powering businesses worldwide</p>
@@ -713,8 +682,8 @@
         </section>
 
         <!-- Support Section -->
-        <section class="py-24 px-6 relative bg-white/40 border-y border-white/5" id="support">
-            <div class="max-w-7xl mx-auto">
+        <section class="relative bg-white/40 border-y border-white/5" id="support" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="text-center mb-16 fade-in-section">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4">Support & Contact</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">We're here to help you succeed</p>
@@ -761,8 +730,8 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="py-24 px-6 relative" id="contact">
-            <div class="max-w-4xl mx-auto">
+        <section class="relative" id="contact" style="padding-top: 192px; padding-bottom: 96px; padding-left: 120px; padding-right: 120px;">
+            <div class="mx-auto" style="max-width: 1280px;">
                 <div class="glass-card p-12 rounded-3xl">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Connected</h2>
@@ -807,8 +776,8 @@
             </div>
         </section>
     </main>
-    <footer class="bg-gray-50 border-t border-primary/10 pt-20 pb-10 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto">
+    <footer class="bg-gray-50 border-t border-primary/10 relative z-10" style="padding-top: 80px; padding-bottom: 40px; padding-left: 120px; padding-right: 120px;">
+        <div class="mx-auto" style="max-width: 1280px;">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-2 mb-6">
