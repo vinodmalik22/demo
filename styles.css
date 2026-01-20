@@ -434,7 +434,10 @@ html, body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
     width: fit-content;
-    margin-left: 3.5ch;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .curtain-subtitle {
@@ -502,6 +505,8 @@ html {
     position: relative;
     width: 100%;
     padding: 40px 0;
+    padding-top: 120px;
+    margin-top: -80px;
 }
 
 .projects-scroll-track {
@@ -514,15 +519,15 @@ html {
 .project-logo-item {
     flex-shrink: 0;
     width: 280px;
-    height: 180px;
-    margin: 0 30px;
+    height: 200px;
+    margin: 0 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     background: transparent;
     border-radius: 12px;
-    padding: 20px;
+    padding: 30px;
 }
 
 .project-logo-item img {
@@ -603,7 +608,9 @@ html {
     /* Curtain text mobile adjustments */
     .curtain-box {
         padding: 0.8rem 1.2rem;
-        margin-left: 0;
+        position: static;
+        margin: 1rem auto 0 auto;
+        transform: none;
     }
 
     .curtain-powered {
@@ -815,3 +822,121 @@ img {
         margin-bottom: 8px;
     }
 }
+
+/* Project Hover Boxes */
+.project-logo-item {
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.project-logo-item:hover {
+    z-index: 200;
+}
+
+.project-hover-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    background: linear-gradient(135deg, var(--box-color, #2563EB) 0%, var(--box-color-dark, #1E40AF) 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 280px;
+    max-width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Default: show on right */
+.project-hover-box.hover-right,
+.project-hover-box {
+    left: calc(100% + 20px);
+}
+
+.project-hover-box.hover-right::before,
+.project-hover-box::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid var(--box-color, #2563EB);
+    border-left: none;
+}
+
+/* When on right side: show on left */
+.project-hover-box.hover-left {
+    left: auto;
+    right: calc(100% + 20px);
+    transform: translateY(-50%) translateX(10px);
+}
+
+.project-hover-box.hover-left::before {
+    left: auto;
+    right: -8px;
+    border-right: none;
+    border-left: 10px solid var(--box-color, #2563EB);
+}
+
+.project-logo-item:hover .project-hover-box.hover-right,
+.project-logo-item:hover .project-hover-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+.project-logo-item:hover .project-hover-box.hover-left {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+.project-hover-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: white;
+}
+
+.project-hover-box p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Dynamic color application */
+.project-hover-box[data-color="#DC2626"] {
+    --box-color: #DC2626;
+    --box-color-dark: #B91C1C;
+}
+
+.project-hover-box[data-color="#2563EB"] {
+    --box-color: #2563EB;
+    --box-color-dark: #1E40AF;
+}
+
+.project-hover-box[data-color="#059669"] {
+    --box-color: #059669;
+    --box-color-dark: #047857;
+}
+
+.project-hover-box[data-color="#F59E0B"] {
+    --box-color: #F59E0B;
+    --box-color-dark: #D97706;
+}
+
+.project-hover-box[data-color="#8B5CF6"] {
+    --box-color: #8B5CF6;
+    --box-color-dark: #7C3AED;
+}
+

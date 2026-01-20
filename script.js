@@ -414,6 +414,34 @@ function animateWires() {
 // Update on resize
 window.addEventListener('resize', updateWireConnections);
 
+// Project Logo Hover Box Positioning
+document.addEventListener('DOMContentLoaded', function() {
+    const projectItems = document.querySelectorAll('.project-logo-item');
+    
+    projectItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const box = this.querySelector('.project-hover-box');
+            if (!box) return;
+            
+            const itemRect = this.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            
+            // Check if item is on right side of viewport
+            const isRightSide = itemRect.left > viewportWidth / 2;
+            
+            // Reset classes
+            box.classList.remove('hover-left', 'hover-right');
+            
+            // Add appropriate class
+            if (isRightSide) {
+                box.classList.add('hover-left');
+            } else {
+                box.classList.add('hover-right');
+            }
+        });
+    });
+});
+
 // Media Panel Functions
 function openMediaPanel(panelId) {
     closeMediaPanels();
