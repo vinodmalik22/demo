@@ -512,7 +512,8 @@ html {
 .projects-scroll-container {
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     padding: 40px 0;
     padding-top: 120px;
     margin-top: -80px;
@@ -949,4 +950,23 @@ img {
     --box-color: #DC2626;
     --box-color-dark: #DC2626;
 }
+
+/* Process Steps Animation */
+.process-step {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-step.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.process-step[data-step="1"].animate-in { transition-delay: 0.1s; }
+.process-step[data-step="2"].animate-in { transition-delay: 0.2s; }
+.process-step[data-step="3"].animate-in { transition-delay: 0.3s; }
+.process-step[data-step="4"].animate-in { transition-delay: 0.4s; }
+.process-step[data-step="5"].animate-in { transition-delay: 0.5s; }
+.process-step[data-step="6"].animate-in { transition-delay: 0.6s; }
 

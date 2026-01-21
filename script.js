@@ -207,6 +207,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.popup-section, .popup-left, .popup-right').forEach(section => {
         observer.observe(section);
     });
+
+    // Process Steps Animation Observer
+    const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            } else {
+                entry.target.classList.remove('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all process steps
+    const processSteps = document.querySelectorAll('.process-step');
+    processSteps.forEach(step => {
+        processObserver.observe(step);
+    });
 });
 
 // Advanced 3D Tilt Card with Mouse Tracking
@@ -480,3 +497,26 @@ function closeMediaPanels() {
         }, 300);
     }
 }
+
+// Auto-close panels on scroll
+let isAnyPanelOpen = false;
+let scrollTimeout;
+
+window.addEventListener('scroll', function() {
+    const announcementPanel = document.getElementById('announcementPanel');
+    const overviewPanel = document.getElementById('overviewPanel');
+    
+    // Check if any panel is currently open
+    const isAnnouncementOpen = announcementPanel && announcementPanel.classList.contains('translate-y-0');
+    const isOverviewOpen = overviewPanel && overviewPanel.classList.contains('translate-y-0');
+    
+    if (isAnnouncementOpen || isOverviewOpen) {
+        // Clear any existing timeout to debounce scroll events
+        clearTimeout(scrollTimeout);
+        
+        // Close panels after a short delay to avoid closing on accidental small scrolls
+        scrollTimeout = setTimeout(() => {
+            closeMediaPanels();
+        }, 100);
+    }
+});
